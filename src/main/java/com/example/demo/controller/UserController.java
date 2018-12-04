@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Project;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +21,6 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/allProjects/{userId}")
-    @ResponseStatus(HttpStatus.OK)
-    public  @ResponseBody Set<Project> getAllProjects(@PathVariable(value="userId") Long id) {
-        return userService.getAllProjects(id);
-    }
-
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public  @ResponseBody User getUser(@RequestParam Long userId) {
@@ -39,5 +32,4 @@ public class UserController {
     public void addUser(@RequestBody User user){
         userService.addUser(user);
     }
-
 }

@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Project;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +27,6 @@ public class UserService {
 
     public Set<User> getUserOfLead(Long userId) {
         return userRepository.findById(userId).map(User::getUsers).orElse(null);
-    }
-
-    public Set<Project> getAllProjects(Long userId){
-        return userRepository.findById(userId).map(User::getProjects).orElse(null);
-
     }
 
     public Set<User> getAllUsers() {
