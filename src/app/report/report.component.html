@@ -1,0 +1,90 @@
+<html>
+<head>
+  <title> Mitarbeiter profile </title>
+</head>
+<body>
+
+<app-mainmenu></app-mainmenu>
+
+<div class="header" style="text-align:center">
+  <h1>Report</h1>
+</div>
+
+<div style="text-align: center; background-color: darkslateblue; padding: 50px">
+  <p style="font-size: 20px; color: white">Please choose the skill that the employees should have
+  </p>
+  <select class="selection">
+
+    <option value="skill1" selected>Skill 1</option>
+    <option value="skill2">Skill 2</option>
+    <option value="skill3">Skill 3</option>
+    <option value="skill4">skill 4</option>
+
+  </select>
+
+  <p style="font-size: 20px; color: white"><br>  Filter after: <br> Region
+    <select class="selection">
+
+      <option value="reg1">reg 1</option>
+      <option value="reg2">reg 2</option>
+      <option value="reg3">reg 3</option>
+      <option value="reg4">reg 4</option>
+
+    </select> Consulting level
+    <select class="selection">
+
+      <option value="Consultinglvl1">Consultinglvl1</option>
+      <option value="Consultinglvl2">Consultinglvl 2</option>
+      <option value="Consultinglvl3">Consultinglvl 3</option>
+      <option value="Consultinglvl4">Consultinglvl 4</option>
+
+    </select>
+  </p>
+
+  <p>
+    <button type="button" class="button button2" onclick="alert('Hello world!')">Display on screen</button>
+    <button type="button" class="button button2" onclick="alert('Hello world!')">Generate EXCEL</button>
+  </p>
+
+</div>
+
+<div style="text-align: center; background-color: royalblue; padding: 50px">
+  <p style="font-size: 20px; color: white">Please choose the skill that the employees should have
+  </p>
+</div>
+
+<div class="container" style="width: 90%;  margin: 70px;
+    border: 1px solid #2c3faf;">
+  <div style="overflow-x:auto;">
+
+    <table class="table">
+
+      <thead style="background-color: #002677; color: white">
+      <tr>
+        <th scope="col"> </th>
+        <th scope="col">Name</th>
+        <th scope="col">Consulting level</th>
+        <th scope="col">Region</th>
+        <th scope="col"> </th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let mitarbeiter of mitarbeiterArray; let i = index" [attr.data-index]="i">
+        <td scope="col">{{i + 1}}</td>
+        <td>{{mitarbeiter.name}}</td>
+        <td>{{mitarbeiter.consulting_level}}</td>
+        <td>{{mitarbeiter.region}}</td>
+        <td>
+          <button type="button" class="button button2" onclick="alert('Hello world!')">See profile</button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title> Mitarbeiter profile </title>
+</head>
+<body>
+
+<app-mainmenu></app-mainmenu>
+
+<div class="header" style="text-align:center">
+  <h1>Subordinates</h1>
+</div>
+<div class="container" style="width: 90%;  margin: 70px;
+    border: 1px solid #2c3faf;">
+  <div style="overflow-x:auto;">
+    <table class="table">
+      <thead style="background-color: #002677; color: white">
+      <tr>
+        <th scope="col"> </th>
+        <th scope="col">Name</th>
+        <th scope="col">Consulting level</th>
+        <th scope="col">Region</th>
+        <th scope="col"> </th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let mitarbeiter of mitarbeiterArray; let i = index" [attr.data-index]="i">
+        <td scope="col">{{i + 1}}</td>
+        <td>{{mitarbeiter.name}}</td>
+        <td>{{mitarbeiter.consulting_level}}</td>
+        <td>{{mitarbeiter.region}}</td>
+        <td>
+          <button type="button" class="button button2" onclick="alert('Hello world!')">Edit</button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
