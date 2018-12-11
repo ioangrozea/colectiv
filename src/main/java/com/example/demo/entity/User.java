@@ -33,6 +33,9 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
+    @OneToMany
+    private Set<Project> projects = new HashSet<>();
+
     private Profil profile;
 
 
@@ -45,6 +48,10 @@ public class User implements Serializable {
 
     public void addUser(User user) {
         users.add(user);
+    }
+
+    public void addProject(Project project){
+        projects.add(project);
     }
 
     @Override
