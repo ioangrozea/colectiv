@@ -12,5 +12,15 @@ h1{
   font-size: 38px;
 }
 .sticky_part{
-  height:100vh;
+  height:70vh;
+}
+
+.button-property{
+  background-color: #009688 !important;
+  color: white;
+  border-color: #009688 !important;
+  text-align: left;
+}
+.progressBar{
+  background-color:grey !important;
 }

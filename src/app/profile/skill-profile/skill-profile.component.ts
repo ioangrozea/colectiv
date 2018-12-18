@@ -7,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillProfileComponent implements OnInit {
 
+  trainingProgress: 10;
 
 
   constructor() { }
 
   ngOnInit() {
   }
-  public trainingProgress: 10;
+
 
 }

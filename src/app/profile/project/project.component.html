@@ -1,32 +1,49 @@
-
-
-
+<html>
+<body>
 <div class="w3-container w3-card w3-white">
   <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
   <div class="w3-container">
-    <h5 class="w3-opacity">Project: <b>Project1</b></h5>
-    <h5 class="w3-opacity">Client: <b>Client1</b></h5>
-    <h5 class="w3-opacity">Branche: <b>Branche1</b></h5>
-    <h5 class="w3-opacity">Role: <b>Role1</b></h5>
-    <h6 class="w3-opacity">Period: <b>06.2018 - 11.2018</b></h6>
-    <p>Description........</p>
-    <hr>
-  </div>
-  <div class="w3-container">
-    <h5 class="w3-opacity">Project: <b>Project1</b></h5>
-    <h5 class="w3-opacity">Client: <b>Client1</b></h5>
-    <h5 class="w3-opacity">Branche: <b>Branche1</b></h5>
-    <h5 class="w3-opacity">Role: <b>Role1</b></h5>
-    <h6 class="w3-opacity">Period: <b>06.2018 - 11.2018</b></h6>
-    <p>Description........</p>
-    <hr>
-  </div>
-  <div class="w3-container">
-    <h5 class="w3-opacity">Project: <b>Project3</b></h5>
-    <h5 class="w3-opacity">Client: <b>Client3</b></h5>
-    <h5 class="w3-opacity">Branche: <b>Branche3</b></h5>
-    <h5 class="w3-opacity">Role: <b>Role3</b></h5>
-    <h6 class="w3-opacity">Period: <b>06.2018 - 11.2018</b></h6>
-    <p>Description........</p>
+
+    <table id="customers" *ngFor="let mitarbeiter of projectArray" >
+      <tr>
+        <th colspan="3">{{mitarbeiter.title}}</th>
+      </tr>
+      <tr>
+        <td class="leftC">Branche</td>
+        <td>{{mitarbeiter.branche}}</td>
+      </tr>
+      <tr>
+        <td class="leftC">Client</td>
+        <td>{{mitarbeiter.client}}</td>
+      </tr>
+      <tr>
+        <td class="leftC">Role</td>
+        <td><input type="text" style="border: white" value={{mitarbeiter.role}}> </td>
+      </tr>
+      <tr>
+        <td class="leftC">Period</td>
+        <td>{{mitarbeiter.period}}</td>
+      </tr>
+      <tr>
+        <td class="leftC">Description</td>
+        <td>{{mitarbeiter.description}}</td>
+      </tr>
+      <tr style="border: white">
+
+        <td style="border: white"></td>
+      </tr>
+
+      <div style="display:inline-block; vertical-align: middle;">
+        <button  type="button" (click)="updateProject(mitarbeiter.title,mitarbeiter.branche, mitarbeiter.client, mitarbeiter.role, mitarbeiter.period, mitarbeiter.description)" >Update project</button>
+        <button type="button" (click)="deleteProject(mitarbeiter.title,mitarbeiter.branche, mitarbeiter.client, mitarbeiter.role, mitarbeiter.period, mitarbeiter.description)">Delete project</button>
+        <!--button type="button" onclick="location.href='/login'">Delete project</--button-->
+      </div>
+
+      <br>
+      <br>
+
+    </table>
   </div>
 </div>
+</body>
+</html>
