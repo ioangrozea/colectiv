@@ -11,6 +11,7 @@ import { ReportComponent } from './report/report.component';
 import { ProjectComponent } from './profile/project/project.component';
 import { MainmenuComponent } from './mainmenu/mainmenu.component';
 import { CardComponent } from './profile/card/card.component';
+import { EditMitarbeiterComponent } from './mitarbeiter-profile/edit-mitarbeiter/edit-mitarbeiter.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CardComponent } from './profile/card/card.component';
     ReportComponent,
     ProjectComponent,
     MainmenuComponent,
-    CardComponent
+    CardComponent,
+    EditMitarbeiterComponent
   ],
   imports: [
     BrowserModule,
