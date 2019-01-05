@@ -13,13 +13,4 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-  @Bean
-  public CommandLineRunner demo(SkillRepository repository) {
-    return (args) -> {
-      // save a couple of customers
-      repository.save(new Skill("C++", "Programming",10));
-      repository.save(new Skill("Java", "Programming",9));
-      repository.save(new Skill("ImageDev", "Photoshop",6));
-    };
-  }
 }

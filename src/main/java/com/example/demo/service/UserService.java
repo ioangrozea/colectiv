@@ -12,50 +12,55 @@ import java.util.Set;
 
 @Service
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+  @Autowired
+  private UserRepository userRepository;
 
-    public void addUser(User user) {
-        if(user.getId()!= null) {
-          Optional<User> dbUser = userRepository.findById(user.getId());
-          if(dbUser.isPresent()){
-            if(user.getProfile() == null)
-              user.setProfile(dbUser.get().getProfile());
-            if(user.getProjects().size() ==0)
-              user.setProjects(dbUser.get().getProjects());
-            if(user.getUsers() == null)
-              user.setUsers(dbUser.get().getUsers());
-            if(user.getEmail() == null)
-              user.setEmail(dbUser.get().getEmail());
-            if(user.getPassword() == null)
-              user.setPassword(dbUser.get().getPassword());
-            if(user.getUserName() == null)
-              user.setUserName(dbUser.get().getUserName());
+  public void addUser(User user) {
+    if (user.getId() != null) {
+      Optional<User> dbUser = userRepository.findById(user.getId());
+      if (dbUser.isPresent()) {
+        if (user.getProfile() == null)
+          user.setProfile(dbUser.get().getProfile());
+        else {
+          if (user.getProfile().getSkills() == null) {
+            user.getProfile().setSkills(dbUser.get().getProfile().getSkills());
           }
         }
-        userRepository.save(user);
+        if (user.getProjects().size() == 0)
+          user.setProjects(dbUser.get().getProjects());
+        if (user.getUsers() == null)
+          user.setUsers(dbUser.get().getUsers());
+        if (user.getEmail() == null)
+          user.setEmail(dbUser.get().getEmail());
+        if (user.getPassword() == null)
+          user.setPassword(dbUser.get().getPassword());
+        if (user.getUserName() == null)
+          user.setUserName(dbUser.get().getUserName());
+      }
     }
+    userRepository.save(user);
+  }
 
-    public void addUserToLead(Long leadId, Long userId) {
-        userRepository.findById(leadId).ifPresent(lead -> userRepository.findById(userId).ifPresent(lead::addUser));
-    }
+  public void addUserToLead(Long leadId, Long userId) {
+    userRepository.findById(leadId).ifPresent(lead -> userRepository.findById(userId).ifPresent(lead::addUser));
+  }
 
-    public User getUser(Long userId) {
-        return userRepository.findById(userId).orElse(null);
-    }
+  public User getUser(Long userId) {
+    return userRepository.findById(userId).orElse(null);
+  }
 
-    public Set<User> getUserOfLead(Long userId) {
-        return userRepository.findById(userId).map(User::getUsers).orElse(null);
-    }
+  public Set<User> getUserOfLead(Long userId) {
+    return userRepository.findById(userId).map(User::getUsers).orElse(null);
+  }
 
-    public Set<Project> getAllProjects(Long userId){
-        return userRepository.findById(userId).map(User::getProjects).orElse(null);
+  public Set<Project> getAllProjects(Long userId) {
+    return userRepository.findById(userId).map(User::getProjects).orElse(null);
 
-    }
+  }
 
-    public Set<User> getAllUsers() {
-        Set<User> users = new HashSet<>();
-        userRepository.findAll().forEach(users::add);
-        return users;
-    }
+  public Set<User> getAllUsers() {
+    Set<User> users = new HashSet<>();
+    userRepository.findAll().forEach(users::add);
+    return users;
+  }
 }

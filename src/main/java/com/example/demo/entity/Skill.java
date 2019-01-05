@@ -18,17 +18,16 @@ public class Skill implements Serializable {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String skillName;
+    private SkillName skillName;
     @Column(nullable = false)
-    private String skillCategory;
-    @Column(nullable = false)
+    private SkillCategory skillCategory;
+    @Column
     private int skillLevel;
 
 
-    public Skill(String skillName, String skillCategory, int skillLevel) {
-        this.skillName = skillName;
-        this.skillCategory = skillCategory;
-        this.skillLevel= skillLevel;
-    }
-
+  public Skill(SkillName skillName, SkillCategory skillCategory, int skillLevel) {
+    this.skillName = skillName;
+    this.skillCategory = skillCategory;
+    this.skillLevel = skillLevel;
+  }
 }
