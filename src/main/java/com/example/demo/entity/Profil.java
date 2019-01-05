@@ -25,7 +25,7 @@ public class Profil implements Serializable {
   private String region;
   @Column(nullable = false)
   private boolean freigegeben;
-  @OneToMany(cascade = CascadeType.DETACH)
+  @OneToMany(cascade = CascadeType.ALL)
   private Set<Skill> skills = new HashSet<>();
 
   public Profil(String region, boolean freigegeben) {
