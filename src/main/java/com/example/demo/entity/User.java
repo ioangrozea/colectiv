@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class User implements Serializable {
     @Id
@@ -30,6 +32,10 @@ public class User implements Serializable {
     private String email;
     @Column(nullable = false)
     private String password;
+
+    private Profil profile;
+
+
 
     public User(String userName, String email, String password) {
         this.userName = userName;
