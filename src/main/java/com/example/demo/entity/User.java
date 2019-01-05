@@ -33,7 +33,7 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Project> projects = new HashSet<>();
 
     private Profil profile;

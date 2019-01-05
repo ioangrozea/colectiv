@@ -40,11 +40,4 @@ public class UserController {
         userService.addUser(user);
     }
 
-    @PutMapping("/projects{userId}")
-    @ResponseStatus(HttpStatus.OK)
-    public void add(@PathVariable(value="userId") Long id, @RequestBody Set<Project> projects){
-        User user = userService.getUser(id);
-         user.setProjects(projects);
-        userService.addUser(user);
-    }
 }
