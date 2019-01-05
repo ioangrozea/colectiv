@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -15,6 +16,23 @@ public class UserService {
     private UserRepository userRepository;
 
     public void addUser(User user) {
+        if(user.getId()!= null) {
+          Optional<User> dbUser = userRepository.findById(user.getId());
+          if(dbUser.isPresent()){
+            if(user.getProfile() == null)
+              user.setProfile(dbUser.get().getProfile());
+            if(user.getProjects().size() ==0)
+              user.setProjects(dbUser.get().getProjects());
+            if(user.getUsers() == null)
+              user.setUsers(dbUser.get().getUsers());
+            if(user.getEmail() == null)
+              user.setEmail(dbUser.get().getEmail());
+            if(user.getPassword() == null)
+              user.setPassword(dbUser.get().getPassword());
+            if(user.getUserName() == null)
+              user.setUserName(dbUser.get().getUserName());
+          }
+        }
         userRepository.save(user);
     }
 

@@ -15,8 +15,6 @@ public class ProfilController {
     @Autowired
     private ProfilService profilService ;
 
-    
-
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public  @ResponseBody

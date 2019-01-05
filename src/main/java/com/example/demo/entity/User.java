@@ -36,6 +36,7 @@ public class User implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Project> projects = new HashSet<>();
 
+    @OneToOne(cascade = CascadeType.ALL )
     private Profil profile;
 
 
