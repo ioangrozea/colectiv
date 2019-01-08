@@ -1,94 +1,24 @@
-table {
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-
-th, td {
-  text-align: left;
+#customers td, #customers th {
+  border: 1px solid #ddd;
   padding: 8px;
 }
-
-tr:nth-child(even) {background-color: #f2f2f2;}
-
-tr:hover {background-color:#ccdcff;}
-
-.table{
-  border-radius: 25px;
+.leftC{
+  background-color:#f5f5f5;
 }
-
-.button {
-  background-color: #002677;
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 2px 1px;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
-
-}
-.selection  {
-  margin-right: 50px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  height: 34px;
-  width: 268px;
-  border-radius: 5px;
-  color: #002677;
-}
-
-
-.button2 {
-  background-color: white;
-  color: black;
-  border: 2px solid #002677;
-}
-
-.button2:hover {
-  background-color: #002677;
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #009688;
   color: white;
 }
 
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: #002677;
-  overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+option{
   font-size: 20px;
-
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: white;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #002677;
-  color: white;
-}
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #002677;
-  color: white;
-  text-align: center;
+  color: black
 }

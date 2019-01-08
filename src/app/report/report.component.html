@@ -9,34 +9,24 @@
   <h1>Report</h1>
 </div>
 
-<div style="text-align: center; background-color: darkslateblue; padding: 50px">
-  <p style="font-size: 20px; color: white">Please choose the skill that the employees should have
-  </p>
-  <select class="selection">
-
-    <option value="skill1" selected>Skill 1</option>
-    <option value="skill2">Skill 2</option>
-    <option value="skill3">Skill 3</option>
-    <option value="skill4">skill 4</option>
-
-  </select>
-
-  <p style="font-size: 20px; color: white"><br>  Filter after: <br> Region
+<div style="text-align: center; background-color: #009688; padding: 50px">
+  <p style="font-size: 20px; color: white"><br>  Filter after <br>
+    Skill:
     <select class="selection">
 
-      <option value="reg1">reg 1</option>
-      <option value="reg2">reg 2</option>
-      <option value="reg3">reg 3</option>
-      <option value="reg4">reg 4</option>
+      <option *ngFor="let skill of skillArray; let i = index" [attr.data-index]="i" value="Skill">{{skill.name}}</option>
+    </select>
 
-    </select> Consulting level
+    Consulting:
     <select class="selection">
 
-      <option value="Consultinglvl1">Consultinglvl1</option>
-      <option value="Consultinglvl2">Consultinglvl 2</option>
-      <option value="Consultinglvl3">Consultinglvl 3</option>
-      <option value="Consultinglvl4">Consultinglvl 4</option>
+      <option *ngFor="let consulting of consultingArray; let i = index" [attr.data-index]="i" value="Consulting">{{consulting.name}}</option>
+    </select>
 
+    Region:
+    <select class="selection">
+
+      <option *ngFor="let region of regionArray; let i = index" [attr.data-index]="i" value="Region">{{region.name}}</option>
     </select>
   </p>
 
@@ -47,42 +37,37 @@
 
 </div>
 
-<div style="text-align: center; background-color: royalblue; padding: 50px">
-  <p style="font-size: 20px; color: white">Please choose the skill that the employees should have
+<div style="text-align: center; background-color: White; padding: 50px">
+  <p style="font-size: 20px; color: black">Please choose the skill that the employees should have
   </p>
 </div>
 
-<div class="container" style="width: 90%;  margin: 70px;
-    border: 1px solid #2c3faf;">
-  <div style="overflow-x:auto;">
+<div class="w3-container">
+  <table id="customers">
+    <thead >
+    <tr>
+      <th scope="col"> </th>
+      <th scope="col">Name</th>
+      <th scope="col">Consulting level</th>
+      <th scope="col">Region</th>
+      <th scope="col"> </th>
 
-    <table class="table">
+    </tr>
+    </thead>
+    <tbody>
 
-      <thead style="background-color: #002677; color: white">
-      <tr>
-        <th scope="col"> </th>
-        <th scope="col">Name</th>
-        <th scope="col">Consulting level</th>
-        <th scope="col">Region</th>
-        <th scope="col"> </th>
+    <tr *ngFor="let mitarbeiter of mitarbeiterArray; let i = index" [attr.data-index]="i">
+      <td scope="col">{{i + 1}}</td>
+      <td>{{mitarbeiter.name}}</td>
+      <td>{{mitarbeiter.consulting_level}}</td>
+      <td>{{mitarbeiter.region}}</td>
+      <td>
+        <button type="button" class="button button2" onclick="alert('Hello world!')">View</button>
+      </td>
+    </tr>
 
-      </tr>
-      </thead>
-      <tbody>
-
-      <tr *ngFor="let mitarbeiter of mitarbeiterArray; let i = index" [attr.data-index]="i">
-        <td scope="col">{{i + 1}}</td>
-        <td>{{mitarbeiter.name}}</td>
-        <td>{{mitarbeiter.consulting_level}}</td>
-        <td>{{mitarbeiter.region}}</td>
-        <td>
-          <button type="button" class="button button2" onclick="alert('Hello world!')">See profile</button>
-        </td>
-      </tr>
-
-      </tbody>
-    </table>
-  </div>
+    </tbody>
+  </table>
 </div>
 
 </body>
