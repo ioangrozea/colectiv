@@ -1,0 +1,26 @@
+.user_details{
+  width: 100%;
+  height: 100%;
+}
+.responsive{
+  width:100%;
+  height:auto;
+  padding:40px;
+}
+h1{
+  color:#009688;
+  font-size: 38px;
+}
+.sticky_part{
+  height:70vh;
+}
+
+.button-property{
+  background-color: #009688 !important;
+  color: white;
+  border-color: #009688 !important;
+  text-align: left;
+}
+.progressBar{
+  background-color:grey !important;
+}

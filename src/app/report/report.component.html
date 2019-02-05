@@ -1,0 +1,74 @@
+<html>
+<head>
+  <title> Mitarbeiter profile </title>
+</head>
+<body>
+
+
+<div class="header" style="text-align:center">
+  <h1>Report</h1>
+</div>
+
+<div style="text-align: center; background-color: #009688; padding: 50px">
+  <p style="font-size: 20px; color: white"><br>  Filter after <br>
+    Skill:
+    <select class="selection">
+
+      <option *ngFor="let skill of skillArray; let i = index" [attr.data-index]="i" value="Skill">{{skill.name}}</option>
+    </select>
+
+    Consulting:
+    <select class="selection">
+
+      <option *ngFor="let consulting of consultingArray; let i = index" [attr.data-index]="i" value="Consulting">{{consulting.name}}</option>
+    </select>
+
+    Region:
+    <select class="selection">
+
+      <option *ngFor="let region of regionArray; let i = index" [attr.data-index]="i" value="Region">{{region.name}}</option>
+    </select>
+  </p>
+
+  <p>
+    <button type="button" class="button button2" onclick="alert('Hello world!')">Display on screen</button>
+    <button type="button" class="button button2" onclick="alert('Hello world!')">Generate EXCEL</button>
+  </p>
+
+</div>
+
+<div style="text-align: center; background-color: White; padding: 50px">
+  <p style="font-size: 20px; color: black">Please choose the skill that the employees should have
+  </p>
+</div>
+
+<div class="w3-container">
+  <table id="customers">
+    <thead >
+    <tr>
+      <th scope="col"> </th>
+      <th scope="col">Name</th>
+      <th scope="col">Consulting level</th>
+      <th scope="col">Region</th>
+      <th scope="col"> </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let mitarbeiter of mitarbeiterArray; let i = index" [attr.data-index]="i">
+      <td scope="col">{{i + 1}}</td>
+      <td>{{mitarbeiter.name}}</td>
+      <td>{{mitarbeiter.consulting_level}}</td>
+      <td>{{mitarbeiter.region}}</td>
+      <td>
+        <button type="button" class="button button2" onclick="alert('Hello world!')">View</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
